@@ -68,5 +68,35 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+  it "keeps words capitalize" do
+    s= translate('Pie')
+    expect(s).to eq("Iepay")
+  end
+
+  it "keeps words capitalized mid sentence" do
+    s = translate("eat Pie")
+    expect(s).to eq("eatay Iepay")
+  end
+
+  it "translates 'If' to 'Ifay'" do
+    s= translate('If')
+    expect(s).to eq("Ifay")
+  end
+
+  it "translates 'a' to 'a'" do
+    s= translate('a')
+    expect(s).to eq("a")
+  end
+
+  it "translates punctuation '--' to '--'" do
+    s= translate('--')
+    expect(s).to eq("--")
+  end
+
+  it "retains puncuation" do
+    s= translate("If a man does not keep pace with his companions, perhaps it is because he hears a different drummer. - Henry David Thoreau")
+    expect(s).to eq("Ifay a anmay oesday otnay eepkay acepay ithway ishay ompanionscay, erhapspay itay isay ecausebay ehay earshay a ifferentday ummerdray. - Enryhay Avidday Oreauthay")
+  end
+
 
 end
