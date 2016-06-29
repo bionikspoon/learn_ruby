@@ -24,5 +24,5 @@ def titleize text
     skip ? word : word.capitalize
   end
 
-  text.split(' ').map.with_index { |word, i| capitalize.call(word, i) }.join(' ')
+  text.split(' ').map.with_index(&capitalize).join(' ')
 end
